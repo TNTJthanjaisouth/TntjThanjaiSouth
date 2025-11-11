@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Tiro+Tamil:ital@0;1&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --bg-primary: #04033d;
+  --bg-secondary: #e0e0f3;
+  --text-primary: #000000;
+  --text-secondary: #c6cfdc;
+  --border-color: #e2e8f0;
+  --nav-bg: #ffffff;
+  --card-bg: #ffffff;
+  --table-header-bg: #f1f5f9;
+  --table-row-bg: #ffffff;
+  --table-row-hover: #f8fafc;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Tiro Tamil", serif;
+}
+
+.dashboard-bg {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+.nav-bg {
+  background: var(--nav-bg);
+}
+
+[data-theme="tamil"] .nav-bg {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+}
+
+[data-theme="tamil"] .nav-bg h1,
+[data-theme="tamil"] .nav-bg button {
+  color: #ffffff;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.table-header {
+  background: var(--table-header-bg);
+  color: var(--text-primary);
+}
+
+.table-row {
+  background: var(--table-row-bg);
+  transition: background 0.2s ease;
+}
+
+.table-row:hover {
+  background: var(--table-row-hover);
+}
+
+.table-cell {
+  color: var(--text-primary);
+}
+
+.input-field {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .input-field {
+  border-color: #475569;
+}
+
+[data-theme="tamil"] .input-field:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--table-row-hover);
+  transform: translateY(-1px);
+}
+
+[data-theme="tamil"] .btn-primary {
+  background: #f59e0b;
+}
+
+[data-theme="tamil"] .btn-primary:hover {
+  background: #d97706;
+}
+
+.btn-export {
+  background: #10b981;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-export:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .table-cell {
+    font-size: 0.875rem;
+    padding: 0.5rem !important;
+  }
+
+  .input-field {
+    font-size: 0.875rem;
+  }
+}
+
+@media print {
+  .btn-primary,
+  .btn-secondary,
+  .btn-export,
+  nav {
+    display: none !important;
+  }
+}
