@@ -2,10 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import {
   Download,
-  Trash2,
   ChevronDown,
   ArrowLeft,
-  Check,
   Palette,
   FileText,
   Image,
@@ -14,66 +12,9 @@ import {
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { toast } from "sonner";
-
-type TableTheme = "classic" | "ocean" | "sunset" | "forest";
-
-const TABLE_THEMES: Record<
-  TableTheme,
-  {
-    name: string;
-    evenBg: string;
-    oddBg: string;
-    color: string;
-    header: string;
-    subheading: string;
-    border: string;
-    tablebg_outset: string;
-  }
-> = {
-  classic: {
-    name: "Classic",
-    evenBg: "bg-gray-50", // softer light gray
-    oddBg: "bg-white",
-    color: "bg-gray-50",
-    header: "bg-gray-700 text-white", // deep gray header
-    subheading: "bg-gray-200 text-gray-800", // muted subheader
-    border: "border-gray-300",
-    tablebg_outset: "bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700",
-  },
-  ocean: {
-    name: "Ocean",
-    evenBg: "bg-green-50",
-    oddBg: "bg-green-100",
-    color: "bg-green-100",
-    header: "bg-green-600 text-white",
-    subheading: "bg-green-200 text-green-800",
-    border: "border-green-400",
-    tablebg_outset:
-      "bg-gradient-to-r from-green-900 via-green-800 to-green-700",
-  },
-  sunset: {
-    name: "Sunset",
-    evenBg: "bg-orange-50",
-    oddBg: "bg-orange-100",
-    color: "bg-orange-100",
-    header: "bg-orange-600 text-white",
-    subheading: "bg-orange-200 text-orange-800",
-    border: "border-orange-400",
-    tablebg_outset:
-      "bg-gradient-to-r from-orange-900 via-orange-800 to-orange-700",
-  },
-  forest: {
-    name: "Forest",
-    evenBg: "bg-green-50",
-    oddBg: "bg-green-100",
-    color: "bg-green-100",
-    header: "bg-green-700 text-white",
-    subheading: "bg-green-200 text-green-800",
-    border: "border-green-400",
-    tablebg_outset:
-      "bg-gradient-to-r from-green-900 via-green-800 to-green-700",
-  },
-};
+import TABLE_THEMES from "../utils/Themes";
+import { TableTheme } from "../types";
+import ThemeSelector from "./ThemeSelector";
 
 export const Preview = () => {
   const navigate = useNavigate();
@@ -111,7 +52,9 @@ export const Preview = () => {
   const [showFormats, setShowFormats] = useState(false);
   const handleThemeChange = (theme: TableTheme) => {
     setTableTheme(theme);
-    toast.success(`Table theme changed to ${TABLE_THEMES[theme].name}`);
+    toast.success(`Table theme changed to ${TABLE_THEMES[theme].name}`, {
+      duration: 2000,
+    });
   };
 
   const handleExport = async (format: "pdf" | "png" | "jpg") => {
@@ -195,11 +138,15 @@ export const Preview = () => {
       }
 
       setExportSuccess(format.toUpperCase());
-      toast.success(`Exported successfully as ${format.toUpperCase()}!`);
+      toast.success(`Exported successfully as ${format.toUpperCase()}!`, {
+        duration: 2000,
+      });
       setTimeout(() => setExportSuccess(null), 3000);
     } catch (err) {
       console.error(err);
-      toast.error("Export failed. Please try again.");
+      toast.error("Export failed. Please try again.", {
+        duration: 2000,
+      });
     } finally {
       setIsExporting(false);
     }
@@ -301,27 +248,10 @@ export const Preview = () => {
             <Palette className="w-6 h-6 text-green-600" />
             Customize Design
           </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="space-y-3">
-              <label className="text-sm font-semibold text-slate-700 uppercase">
-                Table Theme
-              </label>
-              <select
-                value={tableTheme}
-                onChange={(e) =>
-                  handleThemeChange(e.target.value as TableTheme)
-                }
-                className="w-full px-4 py-2 border-2 border-slate-300 rounded-xl bg-white text-slate-700 font-semibold focus:border-green-500 focus:ring-2 focus:ring-green-300 focus:outline-none transition-all"
-              >
-                {(Object.keys(TABLE_THEMES) as TableTheme[]).map((theme) => (
-                  <option key={theme} value={theme}>
-                    {TABLE_THEMES[theme].name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+          <ThemeSelector
+            tableTheme={tableTheme}
+            handleThemeChange={handleThemeChange}
+          />
         </div>
         {/* Live Preview */}
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-4 md:p-8">
