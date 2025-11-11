@@ -189,7 +189,7 @@ export const Dashboard = () => {
         })
       );
 
-      toast.success("Data saved successfully (and stored locally)!");
+      toast.success("Data saved successfully ( stored locally)!");
     } catch (error) {
       console.error(error);
       toast.error(" Error saving data");
@@ -304,9 +304,9 @@ export const Dashboard = () => {
 
         {/* Mobile Menu Inline */}
         {isOpen && (
-          <div className="md:hidden px-4 pb-3 space-y-2 bg-white border-t border-gray-200">
+          <div className="md:hidden  px-4 pb-3 space-y-2 bg-white border-t border-gray-200">
             <button
-              className="w-full text-left bg-green-200 text-green-600 px-3 py-2 rounded-md text-sm font-semibold hover:bg-green-100 flex items-center"
+              className="w-full text-left mt-5  bg-green-200 text-green-600 px-3 py-2 rounded-md text-sm font-semibold hover:bg-green-100 flex items-center"
               onClick={() => {
                 navigate("/manageData");
                 setIsOpen(false);
