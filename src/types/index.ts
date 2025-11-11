@@ -53,3 +53,39 @@ export interface ImageRow {
 }
 
 export type Theme = "light" | "dark" | "tamil";
+export type TableTheme =
+  // Neutral & Classic
+  | "classic"
+  | "slate"
+  | "minimal"
+
+  // Cool tones
+  | "ocean"
+  | "sky"
+  | "teal"
+  | "arctic"
+
+  // Warm tones
+  | "sunset"
+  | "ember"
+  | "sand"
+  | "coral"
+  | "gold"
+
+  // Earthy
+  | "forest"
+  | "moss"
+  | "desert"
+
+  // Dark
+  | "midnight"
+  | "graphite"
+  | "abyss"
+
+  // Soft / Pastel
+  | "lavender"
+  | "rose"
+  | "peach"
+  | "mint"
+  | "lilac"
+  | "ivory";
