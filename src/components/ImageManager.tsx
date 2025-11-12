@@ -137,7 +137,7 @@ export default function ImageManager() {
     uploading: boolean;
     inputRef: React.RefObject<HTMLInputElement>;
   }) => (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-lg  p-6">
       <h3 className="text-xl font-bold text-gray-800 mb-4">{title}</h3>
 
       <div className="space-y-4">
@@ -212,15 +212,15 @@ export default function ImageManager() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="space-y-6 mt-28">
+      <div className="bg-white rounded-lg border p-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">Image Manager</h2>
         <p className="text-gray-600 text-sm">
           Upload and manage header and footer images
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border  rounded-md">
         <ImageCard
           title="Header Image"
           image={headerImage}
