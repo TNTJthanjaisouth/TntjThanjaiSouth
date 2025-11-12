@@ -15,7 +15,7 @@ function App() {
   return (
     <AuthProvider>
       <ThemeProvider>
-        <Toaster position="top-right" />
+        <Toaster closeButton />
         <BrowserRouter>
           <Routes>
             {/* Public route → Login page */}
