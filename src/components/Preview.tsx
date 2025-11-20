@@ -309,7 +309,7 @@ export const Preview = () => {
                       className={`px-3 pt-2 pb-6 text-center align-middle   border ${TABLE_THEMES[tableTheme].border}`}
                     >
                       <span className="font-black text-3xl ">
-                        ஜும்மா தாயிக்களின் விபரம்
+                        ஜும்ஆ தாயிக்களின் விபரம்
                       </span>
                       <br />
                       <br />
