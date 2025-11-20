@@ -306,14 +306,16 @@ export const Preview = () => {
                   <tr className={`${TABLE_THEMES[tableTheme].subheading}`}>
                     <td
                       colSpan={4}
-                      className={`px-6 py-4 text-center align-start  text-2xl border ${TABLE_THEMES[tableTheme].border}`}
+                      className={`px-3 py-2 text-center align-middle   border ${TABLE_THEMES[tableTheme].border}`}
                     >
-                      <span className="font-black ">
+                      <span className="font-black text-3xl ">
                         ஜும்மா தாயிக்களின் விபரம்
                       </span>
                       <br />
-                      இன்ஷா அல்லாஹ்{" "}
-                      {selectedDate || "தேதி தேர்ந்தெடுக்கப்படவில்லை"}
+                      <span className="text-2xl font-light">
+                        இன்ஷா அல்லாஹ்{" "}
+                        {selectedDate || "தேதி தேர்ந்தெடுக்கப்படவில்லை"}
+                      </span>
                     </td>
                   </tr>
 
