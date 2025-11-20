@@ -306,12 +306,17 @@ export const Preview = () => {
                   <tr className={`${TABLE_THEMES[tableTheme].subheading}`}>
                     <td
                       colSpan={4}
-                      className={`px-6 py-4 text-center align-middle font-extrabold text-2xl border ${TABLE_THEMES[tableTheme].border}`}
+                      className={`px-6 py-4 text-center align-start  text-2xl border ${TABLE_THEMES[tableTheme].border}`}
                     >
-                      இன்ஷா அல்லாஹ்{"  "}
+                      <span className="font-black ">
+                        ஜும்மா தாயிக்களின் விபரம்
+                      </span>
+                      <br />
+                      இன்ஷா அல்லாஹ்{" "}
                       {selectedDate || "தேதி தேர்ந்தெடுக்கப்படவில்லை"}
                     </td>
                   </tr>
+
                   <tr className={`${TABLE_THEMES[tableTheme].header}`}>
                     <th
                       className={`py-3 px-4 border-2 ${TABLE_THEMES[tableTheme].border} text-center align-middle`}
@@ -321,17 +326,17 @@ export const Preview = () => {
                     <th
                       className={`py-3 px-4 border-2 ${TABLE_THEMES[tableTheme].border} text-center align-middle`}
                     >
-                      கிளைகள் விவரம்
+                      கிளைகள் விபரம்
                     </th>
                     <th
                       className={`py-3 px-4 border-2 ${TABLE_THEMES[tableTheme].border} text-center align-middle`}
                     >
-                      தொடர்பு
+                      தொடர்புக்கு
                     </th>
                     <th
                       className={`py-3 px-4 border-2 ${TABLE_THEMES[tableTheme].border} text-center align-middle`}
                     >
-                      பேச்சாளர் விவரம்
+                      பேச்சாளர் விபரம்
                     </th>
                   </tr>
                 </thead>
