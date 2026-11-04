@@ -1,0 +1,10 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "TNTJ_THANJAI_BRANCH": { ".read": "auth != null", ".write": false },
+    "DHAYINAMES": { ".read": "auth != null", ".write": "auth != null" },
+    "IMAGES": { ".read": "auth != null", ".write": "auth != null" },
+    "SCHEDULES": { "$date": { ".read": "auth != null", ".write": "auth != null", ".validate": "newData.hasChildren(['date', 'heading', 'assignments', 'updatedAt']) && newData.child('date').val() === $date" } }
+  }
+}

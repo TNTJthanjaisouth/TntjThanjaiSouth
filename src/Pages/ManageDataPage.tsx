@@ -1,0 +1,27 @@
+import DhayiNamesManager from "../components/DhayiNamesManager";
+import { ArrowLeft } from "lucide-react";
+import ImageManager from "../components/ImageManager";
+import { useNavigate } from "react-router-dom";
+const ManageDataPage = () => {
+  const navigate = useNavigate();
+  return (
+    <div className="min-h-screen dashboard-bg space-y-8 pt-24">
+      <header className="bg-emerald-900 text-white py-4 px-4 sm:px-8  shadow-md flex justify-between items-center fixed top-0 w-full z-[100]">
+        <h1 className="text-xl sm:text-2xl font-bold">தாயிகள் மற்றும் படங்கள்</h1>
+
+        <button
+          className="bg-white text-emerald-800 px-3 py-2 rounded-md text-md font-bold hover:bg-green-100 inline-flex"
+          onClick={() => navigate("/dashboard")}
+        >
+          <ArrowLeft className="mr-3" /> திரும்பு
+        </button>
+      </header>
+      <div className="lg:mx-24 ">
+        <ImageManager />
+        <DhayiNamesManager />
+      </div>
+    </div>
+  );
+};
+
+export default ManageDataPage;
